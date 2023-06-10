@@ -1,5 +1,6 @@
 ﻿@model SQLDemo.Models.CreateProduct
 @{
+    ViewData["Title"] = "CreateProduct";
     var categories = ViewBag.Category;
 }
 <section class="text-center">
@@ -20,14 +21,17 @@
             <textarea placeholder="Description" id="Description" class="mt-2 form-control" asp-for="Description" name="Description"></textarea>
             <span asp-validation-for="Description" class="text-danger"></span>
 
-            <select class="mt-2 form-control" asp-for="CategoryId" name="CategoryId">
-                @foreach (var category in categories)
-                {
-                    <option value="@category.Id">
-                        @category.CategoryName
-                    </option>
-                }
-            </select>
+                <select class="mt-2 form-control" asp-for="CategoryId" name="CategoryId">
+                    @foreach (var category in categories)
+                    {
+                        <option value="@category.Id">
+                            @category.CategoryName
+                        </option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>   
+            
+
             <button style="width:100%;" type="submit" value="Create" class="btn btn-primary mt-1">Create Product</button>
         </div>
         <div class="col-sm-3"></div>

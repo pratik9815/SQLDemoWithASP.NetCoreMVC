@@ -1,5 +1,6 @@
 ﻿@model SQLDemo.Models.ProductVm
 @{
+    ViewData["Title"] = "UpdateProduct";
     var categories = ViewBag.Category;
 }
 <section class="text-center">
@@ -28,6 +29,8 @@
                     </option>
                 }
             </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+
             <button style="width:100%;" type="submit" value="Edit" class="btn btn-primary mt-1">Update Product</button>
         </div>
         <div class="col-sm-3"></div>

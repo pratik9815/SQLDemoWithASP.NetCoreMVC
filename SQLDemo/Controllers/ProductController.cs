@@ -29,16 +29,18 @@ namespace SQLDemo.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+
             ViewBag.Category = _categoryRepository.GetCategories().ToList();
+            
             return View();
         }
         [HttpPost]
         public IActionResult Create(CreateProduct product)
         {
+            ViewBag.Category = _categoryRepository.GetCategories().ToList();
             if (ModelState.IsValid)
             {
                 _productRepository.CreateProduct(product);
-                
                 return RedirectToAction("Index");
             }
             return View();
@@ -81,12 +83,12 @@ namespace SQLDemo.Controllers
         {
             if (product == null)
                 return BadRequest();
+            ViewBag.Category = _categoryRepository.GetCategories().ToList();
             if (ModelState.IsValid)
             {
                 _productRepository.EditProduct(product);
                 return RedirectToAction("Index");
             }
-
             return View();
         }
 
