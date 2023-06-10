@@ -1,0 +1,46 @@
+﻿@model List<SQLDemo.Models.CategoryVm>
+@{
+    ViewData["Title"] = "Category";
+}
+<head>
+    <style>
+        th, tr, td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<section class="row">
+    <div class="col-sm-2"></div>
+
+    <div class="col-sm-8">
+        <div class="d-flex justify-content-between">
+            <h2>Category List</h2>
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary mb-3">Add Category</a>
+
+        </div>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            @{
+                foreach (var category in Model)
+                {
+                    <tr>
+                        <td>@category.CategoryName</td>
+                        <td>@category.Description</td>
+                        <td>
+                            <a class="bi bi-eye btn btn-primary" asp-controller="Category" asp-route-id="@category.Id" asp-action="Details"></a>&nbsp; &nbsp;
+                            <a class="bi bi-pencil-square btn btn-secondary" asp-controller="Category" asp-route-id="@category.Id" asp-action="Edit"></a>&nbsp;&nbsp;
+                            <a class="bi bi-trash btn btn btn-danger" asp-controller="Category" asp-route-id="@category.Id" asp-action="Delete"></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+    <div class="col-sm-2"></div>
+</section>

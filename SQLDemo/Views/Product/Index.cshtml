@@ -1,0 +1,48 @@
+﻿@model List<SQLDemo.Models.ProductVm>
+@{
+    ViewData["Title"] = "Product";
+}
+<head>
+    <style>
+        th, tr, td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<section  class="row">
+    <div class="col-sm-2"></div>
+    
+    <div class="col-sm-8">
+        <div class="d-flex justify-content-between">
+            <h2>Product List</h2>
+            <a asp-controller="Product" asp-action="Create" class="btn btn-primary mb-3">Create Product</a>
+
+        </div>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+            @{
+                foreach (var product in Model)
+                {
+                    <tr>
+                        <td style="width:10vw;">@product.Name</td>
+                        <td style="width:10vw;">Rs. @product.Price</td>
+                        <td style="width:10vw;">@product.Quantity</td>
+                        <td style="width:10vw;">
+                            <a class="bi bi-eye btn btn-primary" asp-controller="Product" asp-route-id="@product.Id" asp-action="Details"></a>&nbsp; &nbsp;
+                            <a class="bi bi-pencil-square btn btn-secondary" asp-controller="Product" asp-route-id="@product.Id" asp-action="Edit"></a>&nbsp;&nbsp;
+                            <a class="bi bi-trash btn btn btn-danger" asp-controller="Product" asp-route-id="@product.Id" asp-action="Delete"></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+    <div class="col-sm-2"></div>
+</section>

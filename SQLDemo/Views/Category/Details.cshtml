@@ -1,0 +1,20 @@
+﻿@model SQLDemo.Models.CategoryVm
+@{
+    ViewData["Title"] = "Details";
+}
+<section>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+
+        <tbody>
+            <tr>
+                <td>@Model.CategoryName</td>
+                <td>@Model.Description</td>
+            </tr>
+        </tbody>
+
+    </table>
+</section>

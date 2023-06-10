@@ -1,0 +1,28 @@
+﻿@model SQLDemo.Models.ProductVm
+@{
+}
+
+<section>
+
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>CategoryName</td>
+        </tr>
+ 
+            <tbody>
+                <tr>
+                    <td>@Model.Name</td>
+                    <td>Rs. @Model.Price</td>
+                    <td>@Model.Description</td>
+                    <td>@Model.Quantity</td>
+                    <td>@Model.CategoryName</td>
+                </tr>
+            </tbody>
+  
+    </table>
+
+</section>

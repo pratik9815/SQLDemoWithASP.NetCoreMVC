@@ -1,0 +1,22 @@
+﻿@model SQLDemo.Models.CategoryVm
+@{
+    ViewData["Title"] = "UpdateCategory";
+}
+
+<section>
+    <h3 class="text-center">Create Category</h3>
+    <form method="post" asp-controller="Category" class="m-0 row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <input type="text" id="CategoryName" placeholder="Category name" style="height:38px;" class="mt-2 form-control" asp-for="CategoryName" name="CategoryName" />
+            <span asp-validation-for="CategoryName" class="text-danger"></span>
+
+            <textarea placeholder="Description" id="Description" class="mt-2 form-control" asp-for="Description" name="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+            <button style="width:100%;" type="submit" value="Create" class="btn btn-primary mt-1">Add Category</button>
+        </div>
+
+
+        <div class="col-sm-3"></div>
+    </form>
+</section>
